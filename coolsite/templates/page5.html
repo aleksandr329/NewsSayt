@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% load custom_tags %}
+
+{% block title %}
+Найти ститью
+{% endblock title %}
+
+{% block content %}
+{% for i in news_all %}
+{{ i }}
+{% endfor %}
+{% endblock content %}
+
+
+{% block search %}
+<form action="" method="get">
+
+    {{ filterset.form.as_p }}
+
+    <input type="submit" value="Найти" />
+</form>
+{% endblock search %}
