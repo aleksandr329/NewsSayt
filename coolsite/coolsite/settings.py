@@ -43,11 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
+    'subscriptions',
     'django_filters',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.yandex',
+    'django_apscheduler',
+
 
 ]
 
@@ -150,4 +153,31 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "bereznov83@mail.ru"
+EMAIL_HOST_PASSWORD = "2KD1sh6CcjXTJPM5MLsm"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_SUBJECT_PREFIX = 'newsPro2   '
+
+DEFAULT_FROM_EMAIL = "bereznov83@mail.ru"
+
+SERVER_EMAIL = "bereznov83@mail.ru"
+MANAGERS = (
+    ('Sanchez', 'bereznov83@mail.ru'),
+    ('Manchez', 'konovalenko.mari@bk.ru'),
+)
+
+ADMINS = (
+    ('Manchez', 'konovalenko.mari@bk.ru'),
+)
+
+
+
+
+

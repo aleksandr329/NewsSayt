@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.views.generic import UpdateView
@@ -29,3 +30,14 @@ class Categoryes(models.Model):
 
 
 
+class Subscription(models.Model):
+    user = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        related_name='subscriptions',
+    )
+    category = models.ForeignKey(
+        to='Categoryes',
+        on_delete=models.CASCADE,
+        related_name='subscriptions',
+    )

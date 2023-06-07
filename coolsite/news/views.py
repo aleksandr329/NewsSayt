@@ -1,9 +1,14 @@
+from django.contrib.auth.decorators import login_required
+from django.db.models import Exists, OuterRef
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime
+
+from django.views.decorators.csrf import csrf_protect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import NewsForm
-from .models import News
+from .models import News, Categoryes, Subscription
 from .filters import NewsFilter, NewsFilter2
 
 
@@ -75,3 +80,5 @@ class NewsSearch(ListView):
         context['all'] = News.objects.all()
         context['filterset'] = self.filterset
         return context
+
+
