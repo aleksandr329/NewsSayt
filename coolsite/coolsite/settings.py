@@ -164,7 +164,6 @@ EMAIL_HOST_PASSWORD = "2KD1sh6CcjXTJPM5MLsm"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_SUBJECT_PREFIX = 'newsPro2   '
-
 DEFAULT_FROM_EMAIL = "bereznov83@mail.ru"
 
 SERVER_EMAIL = "bereznov83@mail.ru"
@@ -178,6 +177,10 @@ ADMINS = (
 )
 
 
-
+CELERY_BROKER_URL = 'redis://default:ju8KuVbkaKmU6Ps0uVQ3PpKxPIrmMZiJ@redis-12208.c92.us-east-1-3.ec2.cloud.redislabs.com:12208'
+CELERY_RESULT_BACKEND = 'redis://default:ju8KuVbkaKmU6Ps0uVQ3PpKxPIrmMZiJ@redis-12208.c92.us-east-1-3.ec2.cloud.redislabs.com:12208'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
 

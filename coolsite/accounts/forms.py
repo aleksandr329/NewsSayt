@@ -1,8 +1,8 @@
 from django import forms
 from allauth.account.forms import SignupForm
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User, Group
-from django.core.mail import send_mail, EmailMultiAlternatives, mail_managers, mail_admins
+from django.contrib.auth.models import User
+from django.core.mail import EmailMultiAlternatives, mail_managers, mail_admins
 
 
 class SignUpForm(UserCreationForm):
@@ -46,6 +46,21 @@ class CustomSignupForm(SignupForm):
             subject='Эй Админ у нас Новый пользователь!',
             message=f'Пользователь {user.username} зарегистрировался на сайте.'
         )
+
+        return
+
+
+
+    def mailing_list(self, request, instance=None, user=None):
+        emails = User.objects.filter(
+                     subscriptions__category=instance.category
+                 ).values_list('email', flat=True)
+        subject = 'Последние новости на эту неделю'
+        text = f'Я не знаю как сделать правильный GET запрос чтобы получить последние новости и возможно мейл адреса я тоже неправильно написал'
+
+        for email in emails:
+            msg = EmailMultiAlternatives(subject, text, None, [email])
+            msg.send()
 
         return user
 
