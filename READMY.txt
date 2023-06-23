@@ -1,0 +1,22 @@
+Here is a tutorial project for SkillFactory to create a "News Portal" website.
+
+
+Here, according to Django standards, we simply created and looked at what functionality this framework had. Also here we connected to Redis via Celery.
+
+The accounts, news, subscriptions folders are applications.
+The static folder contains all static css files.
+All HTML templates are in the templates folder.
+The database was used by SQLite.
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________
+<-'RUS'->
+Здесь представлен учебный проект для SkillFactory по созданию сайта "Новостного портала".
+
+
+Здесь все согласно стандартам Django мы просто создавали и смотрели какой функционал у данного фраемворка. Так же здесь мы подключалиь к Redis через Celery. 
+
+Папки accounts, news, subscriptions это приложения.
+В папке static все статические файлы css.
+В папке templates все HTML шаблоны.
+База данных использовалась SQLite.
