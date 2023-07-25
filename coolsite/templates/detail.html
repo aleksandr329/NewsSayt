@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load custom_filter %}
+
+{% block title %}
+{{ bookmark }}
+{% endblock title %}
+
+{% block content %}
+<h1>{{ news_get.title|custom_filter }}</h1>
+<h3>{{ news_get.text|linebreaks }}</h3>
+<h4>{{ news_get.time_in }}</h4>
+{% endblock content %}
+
+
+
+
+
+

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ошибка 403</title>
-</head>
-<body>
-<h1>Вы не авторизованы пожалуйста авторизуйтесь</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+
+{% block title %}
+Ошибка Доступа
+{% endblock title %}
+
+
+{% block content %}
+<h1>Вы не авторизованный пользователь пожалуйста введите логин и пароль</h1>
+{% endblock content %}

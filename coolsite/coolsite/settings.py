@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,17 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e@8=n($u8x34i%o)uvo3&wo9n5-xbg0*dlr10$7=_=i3&lswmu'
+SECRET_KEY = 'django-insecure-s%c_e(0^mxm&+n%*zg%d^pl234i-7ip$j4r3nc5k%+y%$$@xbv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,16 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.sites',
     'django.contrib.staticfiles',
-    'news.apps.NewsConfig',
-    'subscriptions',
+    'newspro.apps.NewsproConfig',
     'django_filters',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.yandex',
-    'django_apscheduler',
 
 
 ]
@@ -79,8 +70,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                'django.template.context_processors.request',
             ],
         },
     },
@@ -122,8 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'ru'
+#en-us
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -141,46 +130,68 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
 LOGIN_REDIRECT_URL = "/main"
 
-ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+    },
+    'filters': {
 
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            #'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = "bereznov83@mail.ru"
-EMAIL_HOST_PASSWORD = "2KD1sh6CcjXTJPM5MLsm"
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-EMAIL_SUBJECT_PREFIX = 'newsPro2   '
-DEFAULT_FROM_EMAIL = "bereznov83@mail.ru"
+        # 'mail_admins': {
+        #     'level': 'ERROR',
+        #     'class': 'django.utils.log.AdminEmailHandler',
+        # },
+        'file1': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'general.log',
+            'formatter': 'verbose',
+        },
+        'file2': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'errors.log',
+            'formatter': 'verbose',
+        },
 
-SERVER_EMAIL = "bereznov83@mail.ru"
-MANAGERS = (
-    ('Sanchez', 'bereznov83@mail.ru'),
-    ('Manchez', 'konovalenko.mari@bk.ru'),
-)
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['file2'],# 'mail_admins'
+            'level': 'WARNING',
+            'propagate': True,
+        },
 
-ADMINS = (
-    ('Manchez', 'konovalenko.mari@bk.ru'),
-)
+        'myproject.custom': {
+            'handlers': ['file1'],
+            'level': 'INFO',
 
-
-CELERY_BROKER_URL = 'redis://default:ju8KuVbkaKmU6Ps0uVQ3PpKxPIrmMZiJ@redis-12208.c92.us-east-1-3.ec2.cloud.redislabs.com:12208'
-CELERY_RESULT_BACKEND = 'redis://default:ju8KuVbkaKmU6Ps0uVQ3PpKxPIrmMZiJ@redis-12208.c92.us-east-1-3.ec2.cloud.redislabs.com:12208'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-
-
+        }
+    }
+}

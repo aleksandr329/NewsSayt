@@ -1,38 +1,24 @@
 {% extends 'base.html' %}
-{% load custom_filters %}
-{% load custom_tags %}
+{% load custom_teg %}
 
 {% block title %}
 Главная страница
 {% endblock title %}
-
 {% block content %}
-<h1>Все товары</h1>
-   <hr>
-   {% if news_all %}
-       <table>
-           <tr>
-               <td>Название</td>
-               <td>Описание</td>
-               <td>Категория</td>
-               <td>Время</td>
-           </tr>
 
-           {% for obj in news_all %}
-           <tr>
+   <form action="" method="get">
 
-               <td>{{ obj.title }}</td>
-               <td>{{ obj.text }}</td>
-               <td>{{ obj.category }}</td>
-               <td>{{ obj.time_in|currency }}</td>
-           </tr>
-           {% endfor %}
+       {{ filterset.form.as_p }}
+       <input type="submit" value="Найти" />
+   </form>
 
-       </table>
-   {% else %}
-       <h2>Товаров нет!</h2>
-   {% endif %}
-
+{% for i in news_all %}
+        <h1>{{ i.title }}</h1>
+        <h3>{{ i.text|truncatewords:50|linebreaks }}</h3>
+        <h4>{{ i.time_in }}</h4>
+    <div class="clear"></div>
+    <p class="link-read-post"><a href="{% url 'news_detail' i.pk %}">Читать пост</a></p>
+{% endfor %}
 {% if page_obj.has_previous %}
        <a href="?{% url_replace page=1 %}">1</a>
        {% if page_obj.previous_page_number != 1 %}
@@ -41,37 +27,15 @@
        {% endif %}
    {% endif %}
 
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; первая</a>
-            <a href="?page={{ page_obj.previous_page_number }}">назад</a>
-        {% endif %}
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">вперед</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">последняя &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
 {% endblock content %}
-
-{% block tag %}
-{% current_time '%b %d %Y' %}
-{% endblock tag %}
-
-{% block search %}
-<form action="" method="get">
-
-    {{ filterset.form.as_p }}
-
-    <input type="submit" value="Найти" />
-</form>
-
-{% endblock search %}
-
-
