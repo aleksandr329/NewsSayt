@@ -8,6 +8,7 @@ from .forms import NewsForm
 from .models import News
 
 logger = logging.getLogger(__name__)
+
 class NewsList(ListView):
     model = News
     ordering = '-id'
@@ -35,6 +36,7 @@ class NewsList(ListView):
         return context
 
 class NewsDetail(DetailView):
+    logger.warning('ERROR message')
     model = News
     template_name = 'detail.html'
     context_object_name = 'news_get'

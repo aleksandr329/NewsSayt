@@ -145,16 +145,10 @@ LOGGING = {
             'style': '{',
         },
     },
-    'filters': {
 
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
-    },
     'handlers': {
         'console': {
             'level': 'DEBUG',
-            #'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         },
@@ -164,7 +158,7 @@ LOGGING = {
         #     'class': 'django.utils.log.AdminEmailHandler',
         # },
         'file1': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': 'general.log',
             'formatter': 'verbose',
@@ -179,18 +173,23 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
-            'propagate': True,
+            'handlers': ['console', 'file1'],
+            'level': 'INFO',
+            'propagate': False,
         },
         'django.request': {
             'handlers': ['file2'],# 'mail_admins'
             'level': 'WARNING',
-            'propagate': True,
+            'propagate': False,
         },
 
-        'myproject.custom': {
+        'django.db.backends': {
             'handlers': ['file1'],
-            'level': 'INFO',
+            'level': 'DEBUG',
+            'duration': True,
+            'sql': True,
+            'params': True,
+            'alias': True,
 
         }
     }

@@ -1,1 +1,21 @@
-INFO 2023-07-25 13:10:53,501 autoreload 9956 12256 C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+
+INFO 2023-07-26 12:41:38,816 autoreload 15196 15992 C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+INFO 2023-07-26 12:41:39,544 autoreload 14572 11012 Watching for file changes with StatReloader
+DEBUG 2023-07-26 12:41:39,640 utils 14572 2980 (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2023-07-26 12:41:39,640 utils 14572 2980 (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2023-07-26 12:41:39,646 utils 14572 2980 (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2023-07-26 12:41:39,646 utils 14572 2980 (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2023-07-26 12:41:42,707 utils 14572 11660 (0.000) SELECT COUNT(*) AS "__count" FROM "newspro_news"; args=(); alias=default
+DEBUG 2023-07-26 12:41:42,707 utils 14572 11660 (0.000) SELECT COUNT(*) AS "__count" FROM "newspro_news"; args=(); alias=default
+DEBUG 2023-07-26 12:41:42,720 utils 14572 11660 (0.000) SELECT "newspro_categoryes"."id", "newspro_categoryes"."name" FROM "newspro_categoryes"; args=(); alias=default
+DEBUG 2023-07-26 12:41:42,720 utils 14572 11660 (0.000) SELECT "newspro_categoryes"."id", "newspro_categoryes"."name" FROM "newspro_categoryes"; args=(); alias=default
+DEBUG 2023-07-26 12:41:42,736 utils 14572 11660 (0.000) SELECT "newspro_news"."id", "newspro_news"."title", "newspro_news"."text", "newspro_news"."time_in", "newspro_news"."is_published", "newspro_news"."category_id" FROM "newspro_news" ORDER BY "newspro_news"."id" DESC LIMIT 2; args=(); alias=default
+DEBUG 2023-07-26 12:41:42,736 utils 14572 11660 (0.000) SELECT "newspro_news"."id", "newspro_news"."title", "newspro_news"."text", "newspro_news"."time_in", "newspro_news"."is_published", "newspro_news"."category_id" FROM "newspro_news" ORDER BY "newspro_news"."id" DESC LIMIT 2; args=(); alias=default
+INFO 2023-07-26 12:41:42,736 basehttp 14572 11660 "GET /main/ HTTP/1.1" 200 4600
+WARNING 2023-07-26 12:41:46,331 basehttp 14572 11660 "GET /main/dhdh HTTP/1.1" 404 3242
