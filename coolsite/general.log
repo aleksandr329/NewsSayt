@@ -1,21 +1,34 @@
 
-INFO 2023-07-26 12:41:38,816 autoreload 15196 15992 C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
-INFO 2023-07-26 12:41:39,544 autoreload 14572 11012 Watching for file changes with StatReloader
-DEBUG 2023-07-26 12:41:39,640 utils 14572 2980 (0.000) 
-            SELECT name, type FROM sqlite_master
-            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
-            ORDER BY name; args=None; alias=default
-DEBUG 2023-07-26 12:41:39,640 utils 14572 2980 (0.000) 
-            SELECT name, type FROM sqlite_master
-            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
-            ORDER BY name; args=None; alias=default
-DEBUG 2023-07-26 12:41:39,646 utils 14572 2980 (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
-DEBUG 2023-07-26 12:41:39,646 utils 14572 2980 (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
-DEBUG 2023-07-26 12:41:42,707 utils 14572 11660 (0.000) SELECT COUNT(*) AS "__count" FROM "newspro_news"; args=(); alias=default
-DEBUG 2023-07-26 12:41:42,707 utils 14572 11660 (0.000) SELECT COUNT(*) AS "__count" FROM "newspro_news"; args=(); alias=default
-DEBUG 2023-07-26 12:41:42,720 utils 14572 11660 (0.000) SELECT "newspro_categoryes"."id", "newspro_categoryes"."name" FROM "newspro_categoryes"; args=(); alias=default
-DEBUG 2023-07-26 12:41:42,720 utils 14572 11660 (0.000) SELECT "newspro_categoryes"."id", "newspro_categoryes"."name" FROM "newspro_categoryes"; args=(); alias=default
-DEBUG 2023-07-26 12:41:42,736 utils 14572 11660 (0.000) SELECT "newspro_news"."id", "newspro_news"."title", "newspro_news"."text", "newspro_news"."time_in", "newspro_news"."is_published", "newspro_news"."category_id" FROM "newspro_news" ORDER BY "newspro_news"."id" DESC LIMIT 2; args=(); alias=default
-DEBUG 2023-07-26 12:41:42,736 utils 14572 11660 (0.000) SELECT "newspro_news"."id", "newspro_news"."title", "newspro_news"."text", "newspro_news"."time_in", "newspro_news"."is_published", "newspro_news"."category_id" FROM "newspro_news" ORDER BY "newspro_news"."id" DESC LIMIT 2; args=(); alias=default
-INFO 2023-07-26 12:41:42,736 basehttp 14572 11660 "GET /main/ HTTP/1.1" 200 4600
-WARNING 2023-07-26 12:41:46,331 basehttp 14572 11660 "GET /main/dhdh HTTP/1.1" 404 3242
+2023-07-27 18:34:45,327 INFO C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:34:46,050 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:35:07,811 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:35:08,539 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:36:17,020 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:36:17,731 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:39:25,566 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:39:26,333 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:39:43,772 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:39:44,449 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:40:06,369 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:40:07,247 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:40:27,962 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:40:28,894 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:40:38,092 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:40:38,818 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:40:48,010 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:40:48,866 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:41:10,520 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:41:11,348 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:42:18,935 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:42:19,619 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:42:54,895 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:42:55,811 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:43:18,527 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:43:19,224 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:45:17,105 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:45:17,722 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:45:30,990 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:46:05,069 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:47:52,274 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
+2023-07-27 18:47:53,034 INFO autoreload Watching for file changes with StatReloader
+2023-07-27 18:48:09,352 INFO autoreload C:\Users\User\Documents\Python\NewsPro\coolsite\coolsite\settings.py changed, reloading.
